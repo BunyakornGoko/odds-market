@@ -11,6 +11,8 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root "pages#home"
+  get "success", to: "pages#success"
+
 
   post "select_product" => "pages#select_product"
   get "confirm" => "pages#confirm"
