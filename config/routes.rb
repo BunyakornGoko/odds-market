@@ -13,4 +13,7 @@ Rails.application.routes.draw do
   root "pages#home"
   get "success", to: "pages#success"
 
+
+  post "select_product" => "pages#select_product"
+  get "confirm" => "pages#confirm"
 end
