@@ -1,0 +1,24 @@
+<div class="w-full min-h-screen flex items-center justify-center">
+  <div class="flex flex-col gap-12 items-center">
+    <div class="flex flex-col gap-2 items-center">
+      <h1 class="text-black text-xl font-semibold">กรอกข้อมูลผู้ซื้อ</h1>
+    </div>
+    
+  <%= form_with url: send_data_path, method: :post, local: true do %>
+  <div class="flex flex-col gap-5">
+    <div class="flex gap-10 items-center">
+      <label for="name" class="text-black text-xl ">Name:</label>
+      <input type="text" name="name" id="name" required class="border rounded-[4px] border-black text-black text-xl px-3 py-2 w-100" placeholder="e.g. Jamesuklhor">
+    </div>
+    <div class="flex gap-17 items-center">
+      <label for="phone" class="text-black text-xl ">Tel:</label>
+      <input type="text" name="phone" id="phone" required class="border rounded-[4px] border-black text-black text-xl px-3 py-2 w-100" placeholder="e.g. 09999999999">
+    </div>
+  </div>
+    <div class="w-full flex items-center justify-center mt-14">
+      <button type="submit" class="px-3 py-2 bg-[#2AA6FF] text-white text-xl rounded-[4px]">Confirm</button>
+    </div>
+  <% end %>
+  </div>
+  
+</div>

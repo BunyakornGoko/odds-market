@@ -1,4 +1,24 @@
 <div>
-  <h1 class="text-red-400">Odds Market</h1>
-  <button class="btn btn-primary">Hello daisyUI!</button>
+  <%# train %>
+  <div class="mt-1 px-20 py-5 bg-black border-t border-t-white">
+    <div class="flex flex-col gap-2">
+      <span class="text-white font-semibold text-[36px]">Shop</span>
+      <p class="text-white text-[18px]">Revamp your style with the latest designer trends in men’s<br> clothing or achieve a perfectly curated wardrobe thanks to<br/> our line-up of timeless pieces. </p>
+    </div>
+  </div>
+  <%# train %>
+
+  <%# List @products %>
+  <%= form_with url: select_product_path, method: :post, local: true, html: { class: "flex flex-col gap-4 w-xl mx-auto pt-4 pb-16" } do %>
+    <% @products.each do |product| %>
+      <div class="p-4 mx-6 flex gap-4 border-b-2 border-gray-600">
+        <%# use radio input to select product %>
+        <input type="radio" name="product_id" id="<%= product[:id] %>" value="<%= product[:id] %>">
+
+        <%# Display product name %>
+        <label class=" text-2xl" for="<%= product[:id] %>"><%= product[:name] %></label>
+      </div>
+    <% end %>
+    <button type="submit" class="px-4 py-2 mt-4 w-fit bg-blue-500 text-white self-center rounded-md">Buy</button>
+  <% end %>
 </div> 
