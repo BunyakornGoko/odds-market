@@ -10,7 +10,10 @@
 
   <%# List @products %>
   <%= form_with url: select_product_path, method: :post, local: true, html: { class: "flex flex-col w-xl mx-auto pb-16" } do %>
-    <% @products.each do |product| %>
+    <% @products
+      .sort_by { |product| product[:name] }
+      .each do |product| 
+    %>
       <label class="p-4 mx-6 flex gap-4 border-b-2 border-gray-600" for="<%= product[:id] %>">
         <input type="radio" name="product_id" id="<%= product[:id] %>" value="<%= product[:id] %>">
         <span class="text-2xl"><%= product[:name] %></span>
