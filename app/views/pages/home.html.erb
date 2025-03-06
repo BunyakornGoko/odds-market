@@ -1,4 +1,17 @@
 <div>
-  <h1 class="text-red-400">Odds Market</h1>
-  <button class="btn btn-primary">Hello daisyUI!</button>
-</div> 
+  <%# List @products %>
+  <div class="flex flex-col gap-4">
+    <%= form_with url: select_product_path, method: :post, local: true do %>
+      <% @products.each do |product| %>
+        <div class="bg-gray-100 p-4">
+          <%# use radio input to select product %>
+          <input type="radio" name="product_id" id="<%= product[:id] %>" value="<%= product[:id] %>">
+
+          <%# Display product name %>
+          <label for="<%= product[:id] %>"><%= product[:name] %></label>
+        </div>
+      <% end %>
+      <button type="submit" class="mt-4 p-2 bg-blue-500 text-white">Next</button>
+    <% end %>
+  </div>
+</div>
