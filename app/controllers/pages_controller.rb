@@ -33,7 +33,6 @@ class PagesController < ApplicationController
 
   def confirm
     @product_id = session[:selected_product_id]
-    session[:selected_product_id] = -1
-    redirect_to root_path unless @product_id.to_i >= 0
+    redirect_to root_path if @product_id.to_i < 0
   end
 end 
