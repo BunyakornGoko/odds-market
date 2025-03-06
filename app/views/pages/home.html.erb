@@ -9,15 +9,15 @@
   <%# train %>
 
   <%# List @products %>
-  <%= form_with url: select_product_path, method: :post, local: true, html: { class: "flex flex-col gap-4 w-xl mx-auto pt-4 pb-16" } do %>
-    <% @products.each do |product| %>
-      <div class="p-4 mx-6 flex gap-4 border-b-2 border-gray-600 text-black">
-        <%# use radio input to select product %>
+  <%= form_with url: select_product_path, method: :post, local: true, html: { class: "flex flex-col w-xl mx-auto pb-16" } do %>
+    <% @products
+      .sort_by { |product| product[:name] }
+      .each do |product| 
+    %>
+      <label class="p-4 mx-6 flex gap-4 border-b-2 border-gray-600" for="<%= product[:id] %>">
         <input type="radio" name="product_id" id="<%= product[:id] %>" value="<%= product[:id] %>">
-
-        <%# Display product name %>
-        <label class=" text-2xl" for="<%= product[:id] %>"><%= product[:name] %></label>
-      </div>
+        <span class="text-2xl"><%= product[:name] %></span>
+      </label>
     <% end %>
     <button type="submit" class="px-4 py-2 mt-4 w-fit bg-blue-500 text-white self-center rounded-md">Buy</button>
   <% end %>
