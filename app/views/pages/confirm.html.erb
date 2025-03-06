@@ -1,0 +1,15 @@
+<div>
+  <h1>กรอกข้อมูลผู้ซื้อ</h1>
+  <p>Selected Product: <%= @product_id %></p>
+  <%= form_with url: confirm_path, method: :post, local: true do %>
+    <div>
+      <label for="name">Name:</label>
+      <input type="text" name="name" id="name" required>
+    </div>
+    <div>
+      <label for="tel">Tel:</label>
+      <input type="tel" name="tel" id="tel" required>
+    </div>
+    <button type="submit" class="mt-4 p-2 bg-blue-500 text-white">Confirm</button>
+  <% end %>
+</div>
