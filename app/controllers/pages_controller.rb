@@ -36,6 +36,22 @@ class PagesController < ApplicationController
     redirect_to root_path if @product_id.to_i < 0
   end
 
+  def send_data
+    name = params[:name]
+    phone = params[:phone]
+    if name.present? && phone.present?
+      flash[:notice] = "Data sent successfully"
+      session[:name] = name
+      session[:phone] = phone
+      redirect_to success_path
+    else
+      flash[:alert] = "Name and phone number are required"
+      redirect_to confirm_path
+    end
+  end
+
   def success
+    @name = session[:name]
+    @phone = session[:phone]
   end
 end 

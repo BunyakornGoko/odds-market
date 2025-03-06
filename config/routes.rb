@@ -16,4 +16,7 @@ Rails.application.routes.draw do
 
   post "select_product" => "pages#select_product"
   get "confirm" => "pages#confirm"
+
+  post "send_data" => "pages#send_data"
+  get "success" => "pages#success"
 end
