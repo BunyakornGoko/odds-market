@@ -35,4 +35,7 @@ class PagesController < ApplicationController
     @product_id = session[:selected_product_id]
     redirect_to root_path if @product_id.to_i < 0
   end
+
+  def success
+  end
 end 
