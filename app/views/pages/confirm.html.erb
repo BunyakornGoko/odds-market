@@ -2,7 +2,6 @@
   <div class="flex flex-col gap-12 items-center">
     <div class="flex flex-col gap-2 items-center">
       <h1 class="text-black text-xl font-semibold">กรอกข้อมูลผู้ซื้อ</h1>
-      <p class="text-black text-xl">Selected Product: <%= @product_id %></p>
     </div>
     
   <%= form_with url: send_data_path, method: :post, local: true do %>
